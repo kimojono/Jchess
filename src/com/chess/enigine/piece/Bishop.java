@@ -6,6 +6,7 @@ import com.chess.enigine.board.BoardUtils;
 import com.chess.enigine.board.Move;
 import com.chess.enigine.board.Move.*;
 import com.chess.enigine.board.Tile;
+import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,6 +25,7 @@ public class Bishop extends Piece {
         for (final int candidateCoordinateOffset : CANDIDATE_MOVE_VECTOR_COORDINATE) {
             int candidateDestinationCoordinate = this.piecePosition;
             while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
+                if (isEdgeCaseException(candidateDestinationCoordinate,candidateCoordinateOffset)){break;}
                 candidateDestinationCoordinate += candidateCoordinateOffset;
                 if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
                     final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
@@ -42,6 +44,11 @@ public class Bishop extends Piece {
                 }
             }
         }
-        return legalMoves;
+        return ImmutableList.copyOf(legalMoves);
+    }
+    private static boolean isEdgeCaseException(final int currentPosition,final int candidateOffset){
+        return ((BoardUtils.EIGHTH_COLUMN[currentPosition] && (candidateOffset== -7 ||
+                candidateOffset == 9)) || (BoardUtils.FIRST_COLUMN[currentPosition] &&
+                (candidateOffset== -9 || candidateOffset == 7)));
     }
 }
