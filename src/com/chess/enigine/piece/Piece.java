@@ -20,7 +20,7 @@ public abstract class Piece {
     }
 
 
-    public Piece(int piecePosition, Alliance pieceAlliance){
+    public Piece(final int piecePosition, final Alliance pieceAlliance){
         this.pieceAlliance = pieceAlliance;
         this.piecePosition = piecePosition;
     }

@@ -1,13 +1,13 @@
 package com.chess.enigine.board;
 
 public class Board {
-    static int boardSize;
+    static final int boardSize;
 
-    public static int getBoardSize() {
+    public static final int getBoardSize() {
         return boardSize;
     }
 
-    public Tile getTile(int candidateDestinationCoordinate) {
+    public Tile getTile(final int candidateDestinationCoordinate) {
         return null;
     }
 }
