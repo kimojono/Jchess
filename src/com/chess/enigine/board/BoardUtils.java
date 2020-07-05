@@ -28,6 +28,6 @@ public class BoardUtils {
     }
 
     public static boolean isValidTileCoordinate(final int candidateDestinationCoordinate) {
-        return candidateDestinationCoordinate < Board.getBoardSize() && candidateDestinationCoordinate >= 0;
+        return candidateDestinationCoordinate < NUM_TILES && candidateDestinationCoordinate >= 0;
     }
 }

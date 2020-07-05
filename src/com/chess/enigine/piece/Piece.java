@@ -12,14 +12,14 @@ public abstract class Piece {
     protected final Alliance pieceAlliance;
     protected final boolean isFirstMove;
     public Alliance getPieceAlliance() {
-        return pieceAlliance;
+        return this.pieceAlliance;
     }
 
     public int getPiecePosition() {
-        return piecePosition;
+        return this.piecePosition;
     }
     public boolean isFirstMove(){
-        return isFirstMove;
+        return this.isFirstMove;
     }
 
 
